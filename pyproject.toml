@@ -1,11 +1,16 @@
 [project]
 name = "blis-cloud-cli"
-version = "0.3.0"
+version = "0.3.2"
 description = "Command-line tool for the BLIS web-based lab information system."
-authors = [{ name = "Mitchell Rysavy", email = "mitchell.rysavy@gmail.com" }]
+authors = [
+    { name = "Mitchell Rysavy", email = "mitchell.rysavy@gmail.com" }
+]
 requires-python = "~=3.8"
+homepage = "https://c4gblis.org/"
+repository = "https://github.com/C4G/blis-cloud-cli"
 readme = "README.md"
 license = "MIT"
+packages = [{include = "blis_cli"}]
 dependencies = [
     "click~= 8.1",
     "colorama~= 0.4",
@@ -16,19 +21,12 @@ dependencies = [
     "PyYAML~= 6.0",
 ]
 
-[project.urls]
-Homepage = "https://c4gblis.org/"
-Repository = "https://github.com/C4G/blis-cloud-cli"
+
 
 [project.scripts]
 blis = "blis_cli.blis:main"
 
-[tool.hatch.build.targets.sdist]
-include = ["blis_cli"]
-
-[tool.hatch.build.targets.wheel]
-include = ["blis_cli"]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
